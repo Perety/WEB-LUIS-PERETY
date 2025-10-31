@@ -101,6 +101,7 @@
       overflow: hidden;
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
     }
     .card:hover {
       transform: translateY(-6px);
@@ -118,6 +119,37 @@
     }
     .card .card-text h4 { color: #00bfff; margin-top: 0; }
     .card .card-text p { color: #ccc; font-size: 14px; }
+
+    .card .extra-info {
+      margin-top: 10px;
+      color: #b0e0ff;
+      display: none;
+      animation: fadeIn 0.4s;
+    }
+    .card.expanded .extra-info {
+      display: block;
+    }
+    .expand-btn {
+      margin-top: 8px;
+      background: #00bfff;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .expand-btn:hover {
+      background: #0099cc;
+    }
+    .card.expanded {
+      box-shadow: 0 8px 32px rgba(0,191,255,0.2);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0;}
+      to { opacity: 1;}
+    }
 
     /* FOOTER */
     footer {
@@ -152,74 +184,138 @@
     <div class="gallery">
 
       <!-- 1 -->
-      <div class="card">
+      <div class="card" onclick="toggleExpand(this)">
         <img src="F-47-artist-rendition_(cropped).jpg" alt="NGAD - EE.UU.">
         <div class="card-text">
           <h4>NGAD (EE.UU.)</h4>
-          <p>El Next Generation Air Dominance reemplazará al F-22 con una arquitectura modular y conectividad total.</p>
+          <p class="main-desc">El Next Generation Air Dominance reemplazará al F-22 con una arquitectura modular y conectividad total.</p>
+          <div class="extra-info">
+            <p>
+              El programa NGAD estadounidense busca crear una familia de sistemas aéreos, no solo un avión. Incluirá cazas tripulados y no tripulados, nuevas armas, sensores avanzados y capacidades de sigilo extremo. La integración con inteligencia artificial será clave, permitiendo operaciones cooperativas hombre-máquina en combate.
+            </p>
+          </div>
+          <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
+            Más información
+          </button>
         </div>
       </div>
 
       <!-- 2 -->
-      <div class="card">
+      <div class="card" onclick="toggleExpand(this)">
         <img src="GCAP_logo.jpg" alt="Tempest - Reino Unido">
         <div class="card-text">
           <h4>Tempest (Reino Unido)</h4>
-          <p>Proyecto británico con IA integrada, control remoto y capacidades de enjambre.</p>
+          <p class="main-desc">Proyecto británico con IA integrada, control remoto y capacidades de enjambre.</p>
+          <div class="extra-info">
+            <p>
+              El Tempest será capaz de operar en modo no tripulado, contará con sensores avanzados de guerra electrónica y podrá controlar drones aliados. Está desarrollado por Reino Unido, Italia y Japón bajo el programa GCAP, con entrada en servicio prevista para 2035.
+            </p>
+          </div>
+          <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
+            Más información
+          </button>
         </div>
       </div>
 
       <!-- 3 -->
-      <div class="card">
+      <div class="card" onclick="toggleExpand(this)">
         <img src="FCAS Poster GOOSE_Janes-Magazin_PRINT.jpeg" alt="FCAS - Europa">
         <div class="card-text">
           <h4>FCAS (Europa)</h4>
-          <p>Francia, Alemania y España colaboran en una red de cazas y drones interconectados.</p>
+          <p class="main-desc">Francia, Alemania y España colaboran en una red de cazas y drones interconectados.</p>
+          <div class="extra-info">
+            <p>
+              El FCAS es un sistema de sistemas que unirá cazas tripulados y vehículos no tripulados (Remote Carriers) bajo una nube de combate digital. Permitirá compartir datos en tiempo real y operar en entornos altamente contestados.
+            </p>
+          </div>
+          <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
+            Más información
+          </button>
         </div>
       </div>
 
       <!-- 4 -->
-      <div class="card">
+      <div class="card" onclick="toggleExpand(this)">
         <img src="432x243_cmsv2_81c3f71a-c7d1-5ffa-ab8e-e10169080099-9079648.webp" alt="KAI KF-21 - Corea del Sur">
         <div class="card-text">
           <h4>KAI KF-21 (Corea del Sur)</h4>
-          <p>“Boramae”, con diseño furtivo y aviónica avanzada, marca el futuro del aire asiático.</p>
+          <p class="main-desc">“Boramae”, con diseño furtivo y aviónica avanzada, marca el futuro del aire asiático.</p>
+          <div class="extra-info">
+            <p>
+              El KF-21 es el primer caza avanzado surcoreano, con radar AESA, baja observabilidad y capacidad para portar armas de última generación. Es un paso previo a un caza de sexta generación y un gran avance tecnológico regional.
+            </p>
+          </div>
+          <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
+            Más información
+          </button>
         </div>
       </div>
 
       <!-- 5 -->
-      <div class="card">
+      <div class="card" onclick="toggleExpand(this)">
         <img src="images (38).jpeg" alt="Mitsubishi FX - Japón">
         <div class="card-text">
           <h4>Mitsubishi FX (Japón)</h4>
-          <p>El sucesor del F-2 japonés incorporará IA, sigilo extremo y cooperación con EE.UU.</p>
+          <p class="main-desc">El sucesor del F-2 japonés incorporará IA, sigilo extremo y cooperación con EE.UU.</p>
+          <div class="extra-info">
+            <p>
+              El Mitsubishi FX incluirá motores potentes, capacidad de guerra electrónica y será interoperable con plataformas aliadas. Su desarrollo enfatiza la autonomía tecnológica japonesa y la colaboración con Lockheed Martin.
+            </p>
+          </div>
+          <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
+            Más información
+          </button>
         </div>
       </div>
 
       <!-- 6 -->
-      <div class="card">
+      <div class="card" onclick="toggleExpand(this)">
         <img src="AMCA-aircraft.jpg" alt="HAL AMCA - India">
         <div class="card-text">
           <h4>HAL AMCA (India)</h4>
-          <p>El Advanced Medium Combat Aircraft será el primer caza furtivo desarrollado en India.</p>
+          <p class="main-desc">El Advanced Medium Combat Aircraft será el primer caza furtivo desarrollado en India.</p>
+          <div class="extra-info">
+            <p>
+              Diseñado para operar tanto en roles aire-aire como aire-tierra, el AMCA empleará tecnologías furtivas, aviónica avanzada y la integración de IA para misiones autónomas. Está previsto que entre en servicio en la próxima década.
+            </p>
+          </div>
+          <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
+            Más información
+          </button>
         </div>
       </div>
 
       <!-- 7 -->
-      <div class="card">
+      <div class="card" onclick="toggleExpand(this)">
         <img src="Checkmate-Su-75-il-1.webp" alt="Su-75 Checkmate - Rusia">
         <div class="card-text">
           <h4>Su-75 Checkmate (Rusia)</h4>
-          <p>Prototipo ruso enfocado en exportaciones, con diseño furtivo y menor coste operativo.</p>
+          <p class="main-desc">Prototipo ruso enfocado en exportaciones, con diseño furtivo y menor coste operativo.</p>
+          <div class="extra-info">
+            <p>
+              El Su-75, todavía en fase de prototipo, busca competir en el mercado internacional de cazas ligeros. Su diseño facilita el mantenimiento y reduce los costes, integrando sensores modernos y capacidades furtivas.
+            </p>
+          </div>
+          <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
+            Más información
+          </button>
         </div>
       </div>
 
       <!-- 8 -->
-      <div class="card">
+      <div class="card" onclick="toggleExpand(this)">
         <img src="TAI-TFX-KAAN-2-jpg.jpeg" alt="TF-X Kaan - Turquía">
         <div class="card-text">
           <h4>TF-X Kaan (Turquía)</h4>
-          <p>El proyecto turco combina diseño de baja firma radar y producción nacional avanzada.</p>
+          <p class="main-desc">El proyecto turco combina diseño de baja firma radar y producción nacional avanzada.</p>
+          <div class="extra-info">
+            <p>
+              El TF-X o “Kaan” es el mayor proyecto aeronáutico turco. Incluirá aviónica de última generación, motores desarrollados localmente y sistemas de guerra electrónica propios, apuntando a la autosuficiencia tecnológica.
+            </p>
+          </div>
+          <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
+            Más información
+          </button>
         </div>
       </div>
 
@@ -237,5 +333,15 @@
     <p class="w3-medium">© 2025 — Aviación Militar de Sexta Generación | Diseño Futurista by W3.CSS</p>
   </footer>
 
+  <script>
+    function toggleExpand(card) {
+      const extra = card.querySelector('.extra-info');
+      if (!card.classList.contains("expanded")) {
+        card.classList.add("expanded");
+      } else {
+        card.classList.remove("expanded");
+      }
+    }
+  </script>
 </body>
 </html>
