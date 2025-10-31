@@ -11,7 +11,29 @@
   <style>
     body, h1, h2, h3, h4, h5, h6 { font-family: "Montserrat", sans-serif; }
     body { background-color: #0a0a0a; color: #f1f1f1; margin: 0; padding: 0; }
-
+    /* NAVBAR */
+    .navbar {
+      background: #161b22;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 10px;
+      border-bottom: 2px solid #00bfff;
+    }
+    .navbar a {
+      color: #f1f1f1;
+      padding: 18px 28px;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 600;
+      transition: background 0.2s, color 0.2s;
+      border-radius: 0 0 8px 8px;
+      letter-spacing: 1px;
+    }
+    .navbar a:hover, .navbar .active {
+      background: #00bfff;
+      color: #0a0a0a;
+    }
     /* HERO SECTION */
     .hero {
       background-image: url('https://www.w3schools.com/w3images/plane.jpg');
@@ -102,7 +124,6 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       transition: transform 0.3s, box-shadow 0.3s;
       cursor: pointer;
-      position: relative;
     }
     .card:hover {
       transform: translateY(-6px);
@@ -140,7 +161,6 @@
       font-weight: 600;
       cursor: pointer;
       transition: background 0.2s;
-      display: inline-block;
     }
     .expand-btn:hover {
       background: #0099cc;
@@ -151,40 +171,6 @@
     @keyframes fadeIn {
       from { opacity: 0;}
       to { opacity: 1;}
-    }
-    .nav-btn {
-      margin-top: 10px;
-      background: #222;
-      color: #00bfff;
-      border: 2px solid #00bfff;
-      border-radius: 6px;
-      padding: 6px 18px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-      display: block;
-      width: 100%;
-    }
-    .nav-btn:hover {
-      background: #00bfff;
-      color: #fff;
-    }
-
-    /* Etiqueta NUEVO */
-    .label-nuevo {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: #ff0f74;
-      color: #fff;
-      padding: 3px 10px;
-      border-radius: 12px;
-      font-size: 11px;
-      font-weight: bold;
-      letter-spacing: 1px;
-      z-index: 2;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
-      animation: fadeIn 1s;
     }
 
     /* FOOTER */
@@ -199,31 +185,22 @@
       transition: 0.3s;
     }
     footer i:hover { color: #00bfff; }
-
-    /* Scroll up button */
-    #scrollUpBtn {
-      display: none;
-      position: fixed;
-      bottom: 40px;
-      right: 40px;
-      z-index: 100;
-      font-size: 22px;
-      border: none;
-      outline: none;
-      background-color: #00bfff;
-      color: white;
-      cursor: pointer;
-      padding: 14px;
-      border-radius: 50%;
-      box-shadow: 0 4px 18px rgba(0,191,255,0.2);
-      transition: background 0.2s;
-    }
-    #scrollUpBtn:hover {
-      background-color: #0099cc;
-    }
   </style>
 </head>
 <body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="active">Inicio</a>
+    <a href="ngad.html">NGAD (EE.UU.)</a>
+    <a href="tempest.html">Tempest (Reino Unido)</a>
+    <a href="fcas.html">FCAS (Europa)</a>
+    <a href="kf21.html">KAI KF-21 (Corea del Sur)</a>
+    <a href="fx.html">Mitsubishi FX (Japón)</a>
+    <a href="amca.html">HAL AMCA (India)</a>
+    <a href="su75.html">Su-75 Checkmate (Rusia)</a>
+    <a href="tfx.html">TF-X Kaan (Turquía)</a>
+  </nav>
 
   <!-- HERO -->
   <div class="hero">
@@ -243,26 +220,17 @@
 
       <!-- 1 -->
       <div class="card" onclick="toggleExpand(this)">
-        <span class="label-nuevo">NUEVO</span>
         <img src="F-47-artist-rendition_(cropped).jpg" alt="NGAD - EE.UU.">
         <div class="card-text">
           <h4>NGAD (EE.UU.)</h4>
-          <p class="main-desc">El Next Generation Air Dominance reemplazará al F-22 con una arquitectura modular y conectividad total.</p>
+          <!-- main-desc eliminado como pediste -->
           <div class="extra-info">
             <p>
-              El programa NGAD estadounidense busca crear una familia de sistemas aéreos, no solo un avión. Incluirá cazas tripulados y no tripulados, nuevas armas, sensores avanzados y capacidades de sigilo extremo. La integración con inteligencia artificial será clave, permitiendo operaciones cooperativas hombre-máquina en combate.
+              El NGAD está diseñado para mantener la superioridad aérea de EE.UU. en el siglo XXI, integrando tecnologías de sigilo, sensores de nueva generación y capacidades de trabajo en red con otras plataformas aliadas y sistemas no tripulados.
             </p>
-            <ul>
-              <li>Sexta generación real: IA, sigilo, enjambres y conectividad total.</li>
-              <li>Previsto para la década de 2030.</li>
-              <li>Desarrollo conjunto con la USAF y socios tecnológicos.</li>
-            </ul>
           </div>
           <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
             Más información
-          </button>
-          <button class="nav-btn" type="button" onclick="event.stopPropagation();window.location.href='ngad.html';">
-            Ver más
           </button>
         </div>
       </div>
@@ -277,17 +245,9 @@
             <p>
               El Tempest será capaz de operar en modo no tripulado, contará con sensores avanzados de guerra electrónica y podrá controlar drones aliados. Está desarrollado por Reino Unido, Italia y Japón bajo el programa GCAP, con entrada en servicio prevista para 2035.
             </p>
-            <ul>
-              <li>Desarrollado por BAE Systems, Leonardo, Rolls-Royce y otros.</li>
-              <li>Enfoque en modularidad y arquitectura abierta.</li>
-              <li>Gran colaboración internacional.</li>
-            </ul>
           </div>
           <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
             Más información
-          </button>
-          <button class="nav-btn" type="button" onclick="event.stopPropagation();window.location.href='tempest.html';">
-            Ver más
           </button>
         </div>
       </div>
@@ -302,17 +262,9 @@
             <p>
               El FCAS es un sistema de sistemas que unirá cazas tripulados y vehículos no tripulados (Remote Carriers) bajo una nube de combate digital. Permitirá compartir datos en tiempo real y operar en entornos altamente contestados.
             </p>
-            <ul>
-              <li>Incluye el caza NGF y drones acompañantes.</li>
-              <li>Enfocado en la interoperabilidad europea y soberanía tecnológica.</li>
-              <li>Desarrollo liderado por Dassault y Airbus.</li>
-            </ul>
           </div>
           <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
             Más información
-          </button>
-          <button class="nav-btn" type="button" onclick="event.stopPropagation();window.location.href='fcas.html';">
-            Ver más
           </button>
         </div>
       </div>
@@ -327,17 +279,9 @@
             <p>
               El KF-21 es el primer caza avanzado surcoreano, con radar AESA, baja observabilidad y capacidad para portar armas de última generación. Es un paso previo a un caza de sexta generación y un gran avance tecnológico regional.
             </p>
-            <ul>
-              <li>Primer vuelo en 2022.</li>
-              <li>Capaz de integrar tecnología nacional y extranjera.</li>
-              <li>Proyectado para la exportación.</li>
-            </ul>
           </div>
           <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
             Más información
-          </button>
-          <button class="nav-btn" type="button" onclick="event.stopPropagation();window.location.href='kf21.html';">
-            Ver más
           </button>
         </div>
       </div>
@@ -352,17 +296,9 @@
             <p>
               El Mitsubishi FX incluirá motores potentes, capacidad de guerra electrónica y será interoperable con plataformas aliadas. Su desarrollo enfatiza la autonomía tecnológica japonesa y la colaboración con Lockheed Martin.
             </p>
-            <ul>
-              <li>Participación de Mitsubishi Heavy Industries.</li>
-              <li>Incluye sensores activos y sigilo avanzado.</li>
-              <li>En desarrollo desde 2020.</li>
-            </ul>
           </div>
           <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
             Más información
-          </button>
-          <button class="nav-btn" type="button" onclick="event.stopPropagation();window.location.href='fx.html';">
-            Ver más
           </button>
         </div>
       </div>
@@ -377,17 +313,9 @@
             <p>
               Diseñado para operar tanto en roles aire-aire como aire-tierra, el AMCA empleará tecnologías furtivas, aviónica avanzada y la integración de IA para misiones autónomas. Está previsto que entre en servicio en la próxima década.
             </p>
-            <ul>
-              <li>Desarrollado por HAL y DRDO.</li>
-              <li>Incluirá modo no tripulado y armas hipersónicas.</li>
-              <li>Gran hito para la industria india.</li>
-            </ul>
           </div>
           <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
             Más información
-          </button>
-          <button class="nav-btn" type="button" onclick="event.stopPropagation();window.location.href='amca.html';">
-            Ver más
           </button>
         </div>
       </div>
@@ -402,17 +330,9 @@
             <p>
               El Su-75, todavía en fase de prototipo, busca competir en el mercado internacional de cazas ligeros. Su diseño facilita el mantenimiento y reduce los costes, integrando sensores modernos y capacidades furtivas.
             </p>
-            <ul>
-              <li>Desarrollado por Sukhoi.</li>
-              <li>Enfocado a mercados emergentes.</li>
-              <li>Presentado en 2021 en el MAKS de Moscú.</li>
-            </ul>
           </div>
           <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
             Más información
-          </button>
-          <button class="nav-btn" type="button" onclick="event.stopPropagation();window.location.href='checkmate.html';">
-            Ver más
           </button>
         </div>
       </div>
@@ -427,17 +347,9 @@
             <p>
               El TF-X o “Kaan” es el mayor proyecto aeronáutico turco. Incluirá aviónica de última generación, motores desarrollados localmente y sistemas de guerra electrónica propios, apuntando a la autosuficiencia tecnológica.
             </p>
-            <ul>
-              <li>Desarrollado por Turkish Aerospace Industries (TAI).</li>
-              <li>Primer vuelo previsto para 2025.</li>
-              <li>Motor nacional y alta modularidad.</li>
-            </ul>
           </div>
           <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
             Más información
-          </button>
-          <button class="nav-btn" type="button" onclick="event.stopPropagation();window.location.href='kaan.html';">
-            Ver más
           </button>
         </div>
       </div>
@@ -454,364 +366,6 @@
       <i class="fa fa-linkedin w3-hover-opacity"></i>
     </div>
     <p class="w3-medium">© 2025 — Aviación Militar de Sexta Generación | Diseño Futurista by W3.CSS</p>
-  </footer>
-
-  <!-- Scroll Up Button -->
-  <button onclick="scrollToTop()" id="scrollUpBtn" title="Volver arriba"><i class="fa fa-arrow-up"></i></button>
-
-  <script>
-    // Expansión de tarjetas
-    function toggleExpand(card) {
-      card.classList.toggle("expanded");
-    }
-
-    // Scroll Up Button
-    const scrollBtn = document.getElementById("scrollUpBtn");
-    window.onscroll = function() {
-      if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
-        scrollBtn.style.display = "block";
-      } else {
-        scrollBtn.style.display = "none";
-      }
-    };
-    function scrollToTop() {
-      window.scrollTo({top: 0, behavior: 'smooth'});
-    }
-  </script>
-</body>
-</html><!DOCTYPE html>
-<html lang="es">
-<head>
-  <title>𝑨𝒗𝒊𝒂𝒄𝒊𝒐́𝒏 𝑴𝒊𝒍𝒊𝒕𝒂𝒓 𝒅𝒆 𝟔ª 𝑮𝒆𝒏𝒆𝒓𝒂𝒄𝒊𝒐́𝒏</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,600">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <style>
-    body, h1, h2, h3, h4, h5, h6 { font-family: "Montserrat", sans-serif; }
-    body { background-color: #0a0a0a; color: #f1f1f1; margin: 0; padding: 0; }
-
-    /* HERO SECTION */
-    .hero {
-      background-image: url('https://www.w3schools.com/w3images/plane.jpg');
-      background-size: cover;
-      background-position: center;
-      height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-      position: relative;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 700px;
-    }
-    .hero h1 {
-      font-size: 52px;
-      color: #00bfff;
-      margin-bottom: 20px;
-    }
-    .hero p { font-size: 18px; color: #ddd; }
-    .hero .btn {
-      margin-top: 30px;
-      background-color: #00bfff;
-      color: #fff;
-      padding: 12px 30px;
-      border-radius: 8px;
-      font-weight: bold;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .hero .btn:hover { background-color: #0099cc; }
-
-    /* SECCIONES */
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 80px 16px;
-    }
-    section h2 {
-      color: #00bfff;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    hr {
-      width: 120px;
-      border: 1px solid #00bfff;
-      margin: 16px auto 48px auto;
-    }
-
-    /* TECNOLOGÍAS */
-    .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 32px;
-    }
-    .tech-card {
-      background: #1a1a1a;
-      border-radius: 16px;
-      padding: 20px;
-      text-align: center;
-      transition: 0.3s;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
-    .tech-card:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(0,0,0,0.5); }
-    .tech-card i { font-size: 48px; color: #00bfff; margin-bottom: 16px; }
-
-    /* PROYECTOS */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 32px;
-    }
-    .card {
-      background-color: #1a1a1a;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-      cursor: pointer;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 6px 25px rgba(0,0,0,0.5);
-    }
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-bottom: 2px solid #333;
-    }
-    .card .card-text {
-      padding: 16px;
-      text-align: center;
-    }
-    .card .card-text h4 { color: #00bfff; margin-top: 0; }
-    .card .card-text p { color: #ccc; font-size: 14px; }
-
-    .card .extra-info {
-      margin-top: 10px;
-      color: #b0e0ff;
-      display: none;
-      animation: fadeIn 0.4s;
-    }
-    .card.expanded .extra-info {
-      display: block;
-    }
-    .expand-btn {
-      margin-top: 8px;
-      background: #00bfff;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      padding: 6px 18px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .expand-btn:hover {
-      background: #0099cc;
-    }
-    .card.expanded {
-      box-shadow: 0 8px 32px rgba(0,191,255,0.2);
-    }
-    @keyframes fadeIn {
-      from { opacity: 0;}
-      to { opacity: 1;}
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 48px 16px;
-      color: #888;
-      border-top: 1px solid #222;
-    }
-    footer i {
-      margin: 0 10px;
-      transition: 0.3s;
-    }
-    footer i:hover { color: #00bfff; }
-  </style>
-</head>
-<body>
-
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-content">
-      <h1>𝑨𝒗𝒊𝒂𝒄𝒊𝒐́𝒏 𝑴𝒊𝒍𝒊𝒕𝒂𝒓 𝒅𝒆 𝑺𝒆𝒙𝒕𝒂 𝑮𝒆𝒏𝒆𝒓𝒂𝒄𝒊𝒐́𝒏</h1>
-      <p>Descubre la nueva era del combate aéreo: plataformas inteligentes, invisibles y conectadas globalmente.</p>
-      <a href="#proyectos" class="btn">Explorar Modelos</a>
-    </div>
-  </div>
-
-  <!-- PROYECTOS PRINCIPALES -->
-  <section id="proyectos">
-    <h2>Proyectos Principales</h2>
-    <hr>
-
-    <div class="gallery">
-
-      <!-- 1 -->
-      <div class="card" onclick="toggleExpand(this)">
-        <img src="F-47-artist-rendition_(cropped).jpg" alt="NGAD - EE.UU.">
-        <div class="card-text">
-          <h4>𝐍𝐆𝐀𝐃 (𝐄𝐄.𝐔𝐔.)</h4>
-          <p class="main-desc">El Next Generation Air Dominance reemplazará al F-22 con una arquitectura modular y conectividad total.</p>
-          <div class="extra-info">
-            <p>
-              El programa NGAD estadounidense busca crear una familia de sistemas aéreos, no solo un avión. Incluirá cazas tripulados y no tripulados, nuevas armas, sensores avanzados y capacidades de sigilo extremo. La integración con inteligencia artificial será clave, permitiendo operaciones cooperativas hombre-máquina en combate.
-            </p>
-          </div>
-          <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
-            Más información
-          </button>
-        </div>
-      </div>
-
-      <!-- 2 -->
-      <div class="card" onclick="toggleExpand(this)">
-        <img src="GCAP_logo.jpg" alt="Tempest - Reino Unido">
-        <div class="card-text">
-          <h4>𝐓𝐞𝐦𝐩𝐞𝐬𝐭 (𝐑𝐞𝐢𝐧𝐨 𝐔𝐧𝐢𝐝𝐨)</h4>
-          <p class="main-desc">Proyecto británico con IA integrada, control remoto y capacidades de enjambre.</p>
-          <div class="extra-info">
-            <p>
-              El Tempest será capaz de operar en modo no tripulado, contará con sensores avanzados de guerra electrónica y podrá controlar drones aliados. Está desarrollado por Reino Unido, Italia y Japón bajo el programa GCAP, con entrada en servicio prevista para 2035.
-            </p>
-          </div>
-          <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
-            Más información
-          </button>
-        </div>
-      </div>
-
-      <!-- 3 -->
-      <div class="card" onclick="toggleExpand(this)">
-        <img src="FCAS Poster GOOSE_Janes-Magazin_PRINT.jpeg" alt="FCAS - Europa">
-        <div class="card-text">
-          <h4>𝐅𝐂𝐀𝐒 (𝐄𝐮𝐫𝐨𝐩𝐚)</h4>
-          <p class="main-desc">Francia, Alemania y España colaboran en una red de cazas y drones interconectados.</p>
-          <div class="extra-info">
-            <p>
-              El FCAS es un sistema de sistemas que unirá cazas tripulados y vehículos no tripulados (Remote Carriers) bajo una nube de combate digital. Permitirá compartir datos en tiempo real y operar en entornos altamente contestados.
-            </p>
-          </div>
-          <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
-            Más información
-          </button>
-        </div>
-      </div>
-
-      <!-- 4 -->
-      <div class="card" onclick="toggleExpand(this)">
-        <img src="432x243_cmsv2_81c3f71a-c7d1-5ffa-ab8e-e10169080099-9079648.webp" alt="KAI KF-21 - Corea del Sur">
-        <div class="card-text">
-          <h4>𝐊𝐀𝐈 𝐊𝐅-𝟐𝟏 (𝐂𝐨𝐫𝐞𝐚 𝐝𝐞𝐥 𝐒𝐮𝐫)</h4>
-          <p class="main-desc">“Boramae”, con diseño furtivo y aviónica avanzada, marca el futuro del aire asiático.</p>
-          <div class="extra-info">
-            <p>
-              El KF-21 es el primer caza avanzado surcoreano, con radar AESA, baja observabilidad y capacidad para portar armas de última generación. Es un paso previo a un caza de sexta generación y un gran avance tecnológico regional.
-            </p>
-          </div>
-          <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
-            Más información
-          </button>
-        </div>
-      </div>
-
-      <!-- 5 -->
-      <div class="card" onclick="toggleExpand(this)">
-        <img src="images (38).jpeg" alt="Mitsubishi FX - Japón">
-        <div class="card-text">
-          <h4>Mitsubishi FX (Japón)</h4>
-          <p class="main-desc">El sucesor del F-2 japonés incorporará IA, sigilo extremo y cooperación con EE.UU.</p>
-          <div class="extra-info">
-            <p>
-              El Mitsubishi FX incluirá motores potentes, capacidad de guerra electrónica y será interoperable con plataformas aliadas. Su desarrollo enfatiza la autonomía tecnológica japonesa y la colaboración con Lockheed Martin.
-            </p>
-          </div>
-          <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
-            Más información
-          </button>
-        </div>
-      </div>
-
-      <!-- 6 -->
-      <div class="card" onclick="toggleExpand(this)">
-        <img src="AMCA-aircraft.jpg" alt="HAL AMCA - India">
-        <div class="card-text">
-          <h4>𝐇𝐀𝐋 𝐀𝐌𝐂𝐀 (𝐈𝐧𝐝𝐢𝐚)</h4>
-          <p class="main-desc">El Advanced Medium Combat Aircraft será el primer caza furtivo desarrollado en India.</p>
-          <div class="extra-info">
-            <p>
-              Diseñado para operar tanto en roles aire-aire como aire-tierra, el AMCA empleará tecnologías furtivas, aviónica avanzada y la integración de IA para misiones autónomas. Está previsto que entre en servicio en la próxima década.
-            </p>
-          </div>
-          <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
-            Más información
-          </button>
-        </div>
-      </div>
-
-      <!-- 7 -->
-      <div class="card" onclick="toggleExpand(this)">
-        <img src="Checkmate-Su-75-il-1.webp" alt="Su-75 Checkmate - Rusia">
-        <div class="card-text">
-          <h4>𝐒𝐮-𝟕𝟓 𝐂𝐡𝐞𝐜𝐤𝐦𝐚𝐭𝐞 (𝐑𝐮𝐬𝐢𝐚)</h4>
-          <p class="main-desc">Prototipo ruso enfocado en exportaciones, con diseño furtivo y menor coste operativo.</p>
-          <div class="extra-info">
-            <p>
-              El Su-75, todavía en fase de prototipo, busca competir en el mercado internacional de cazas ligeros. Su diseño facilita el mantenimiento y reduce los costes, integrando sensores modernos y capacidades furtivas.
-            </p>
-          </div>
-          <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
-            Más información
-          </button>
-        </div>
-      </div>
-
-      <!-- 8 -->
-      <div class="card" onclick="toggleExpand(this)">
-        <img src="TAI-TFX-KAAN-2-jpg.jpeg" alt="TF-X Kaan - Turquía">
-        <div class="card-text">
-          <h4>𝐓𝐅-𝐗 𝐊𝐚𝐚𝐧 (𝐓𝐮𝐫𝐪𝐮𝐢́𝐚)</h4>
-          <p class="main-desc">El proyecto turco combina diseño de baja firma radar y producción nacional avanzada.</p>
-          <div class="extra-info">
-            <p>
-              El TF-X o “Kaan” es el mayor proyecto aeronáutico turco. Incluirá aviónica de última generación, motores desarrollados localmente y sistemas de guerra electrónica propios, apuntando a la autosuficiencia tecnológica.
-            </p>
-          </div>
-          <button class="expand-btn" type="button" onclick="event.stopPropagation();toggleExpand(this.parentElement.parentElement);">
-            Más información
-          </button>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div>
-      <i class="fa fa-facebook-official w3-hover-opacity"></i>
-      <i class="fa fa-instagram w3-hover-opacity"></i>
-      <i class="fa fa-twitter w3-hover-opacity"></i>
-      <i class="fa fa-linkedin w3-hover-opacity"></i>
-    </div>
-    <p class="w3-medium">© 2025 — Aviación Militar de Sexta Generación | Diseño de W3.CSS</p>
   </footer>
 
   <script>
