@@ -11,29 +11,70 @@
   <style>
     body, h1, h2, h3, h4, h5, h6 { font-family: "Montserrat", sans-serif; }
     body { background-color: #0a0a0a; color: #f1f1f1; margin: 0; padding: 0; }
+
     /* NAVBAR */
     .navbar {
-      background: #161b22;
+      background: linear-gradient(90deg, #0a2240 0%, #00bfff 100%);
       display: flex;
-      justify-content: center;
       align-items: center;
       padding: 0 10px;
-      border-bottom: 2px solid #00bfff;
+      border-bottom: 3px solid #00bfff;
+      box-shadow: 0 4px 16px rgba(0,191,255,0.12);
+      position: sticky;
+      top: 0; left: 0; right: 0;
+      z-index: 10;
+    }
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+      margin-right: 40px;
+      padding: 0;
+    }
+    .navbar-logo i {
+      font-size: 28px;
+      color: #fff;
+      margin-right: 10px;
+      text-shadow: 0 2px 10px #00bfff77;
+    }
+    .navbar-logo span {
+      font-size: 23px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 6px #0099cc55;
+      font-family: inherit;
+      margin-bottom: -2px;
+    }
+    .navbar-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
     }
     .navbar a {
       color: #f1f1f1;
-      padding: 18px 28px;
+      padding: 14px 22px;
+      margin: 0 2px;
       text-decoration: none;
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 600;
-      transition: background 0.2s, color 0.2s;
-      border-radius: 0 0 8px 8px;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      border-radius: 6px;
       letter-spacing: 1px;
+      box-shadow: 0 2px 6px transparent;
+      position: relative;
+      z-index: 1;
+      background: rgba(10, 34, 64, 0.12);
+      border: none;
+      outline: none;
     }
     .navbar a:hover, .navbar .active {
-      background: #00bfff;
-      color: #0a0a0a;
+      background: #fff;
+      color: #0099cc;
+      box-shadow: 0 2px 12px #00bfff44;
+      text-shadow: 0 1px 1px #00bfffee;
+      font-weight: 700;
     }
+
     /* HERO SECTION */
     .hero {
       background-image: url('https://www.w3schools.com/w3images/plane.jpg');
@@ -63,6 +104,7 @@
       font-size: 52px;
       color: #00bfff;
       margin-bottom: 20px;
+      text-shadow: 0 2px 16px #000b;
     }
     .hero p { font-size: 18px; color: #ddd; }
     .hero .btn {
@@ -74,10 +116,11 @@
       font-weight: bold;
       text-decoration: none;
       transition: 0.3s;
+      box-shadow: 0 2px 12px #00bfff55;
+      border: none;
     }
     .hero .btn:hover { background-color: #0099cc; }
 
-    /* SECCIONES */
     section {
       max-width: 1100px;
       margin: auto;
@@ -87,6 +130,7 @@
       color: #00bfff;
       text-align: center;
       margin-bottom: 20px;
+      text-shadow: 0 2px 10px #00bfff22;
     }
     hr {
       width: 120px;
@@ -94,24 +138,6 @@
       margin: 16px auto 48px auto;
     }
 
-    /* TECNOLOGÍAS */
-    .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 32px;
-    }
-    .tech-card {
-      background: #1a1a1a;
-      border-radius: 16px;
-      padding: 20px;
-      text-align: center;
-      transition: 0.3s;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
-    .tech-card:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(0,0,0,0.5); }
-    .tech-card i { font-size: 48px; color: #00bfff; margin-bottom: 16px; }
-
-    /* PROYECTOS */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -185,21 +211,40 @@
       transition: 0.3s;
     }
     footer i:hover { color: #00bfff; }
+
+    @media (max-width: 900px){
+      .navbar-links { flex-wrap: wrap; }
+      .hero h1 { font-size: 36px; }
+      section { padding: 40px 6px; }
+      .gallery { gap: 16px; }
+    }
+    @media (max-width: 600px){
+      .navbar-logo span { font-size: 16px;}
+      .navbar-logo i { font-size: 20px;}
+      .navbar-links a { font-size: 13px; padding: 8px 8px;}
+      .gallery { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
 
   <!-- NAVBAR -->
   <nav class="navbar">
-    <a href="index.html" class="active">Inicio</a>
-    <a href="ngad.html">NGAD (EE.UU.)</a>
-    <a href="tempest.html">Tempest (Reino Unido)</a>
-    <a href="fcas.html">FCAS (Europa)</a>
-    <a href="kf21.html">KAI KF-21 (Corea del Sur)</a>
-    <a href="fx.html">Mitsubishi FX (Japón)</a>
-    <a href="amca.html">HAL AMCA (India)</a>
-    <a href="su75.html">Su-75 Checkmate (Rusia)</a>
-    <a href="tfx.html">TF-X Kaan (Turquía)</a>
+    <div class="navbar-logo">
+      <i class="fa fa-fighter-jet"></i>
+      <span>Aviación 6ª Generación</span>
+    </div>
+    <div class="navbar-links">
+      <a href="index.html" class="active">Inicio</a>
+      <a href="ngad.html">NGAD (EE.UU.)</a>
+      <a href="tempest.html">Tempest (Reino Unido)</a>
+      <a href="fcas.html">FCAS (Europa)</a>
+      <a href="kf21.html">KAI KF-21 (Corea del Sur)</a>
+      <a href="fx.html">Mitsubishi FX (Japón)</a>
+      <a href="amca.html">HAL AMCA (India)</a>
+      <a href="su75.html">Su-75 Checkmate (Rusia)</a>
+      <a href="tfx.html">TF-X Kaan (Turquía)</a>
+    </div>
   </nav>
 
   <!-- HERO -->
@@ -223,7 +268,7 @@
         <img src="F-47-artist-rendition_(cropped).jpg" alt="NGAD - EE.UU.">
         <div class="card-text">
           <h4>NGAD (EE.UU.)</h4>
-          <!-- main-desc eliminado como pediste -->
+          <p class="main-desc">El Next Generation Air Dominance reemplazará al F-22 con una arquitectura modular y conectividad total.</p>
           <div class="extra-info">
             <p>
               El NGAD está diseñado para mantener la superioridad aérea de EE.UU. en el siglo XXI, integrando tecnologías de sigilo, sensores de nueva generación y capacidades de trabajo en red con otras plataformas aliadas y sistemas no tripulados.
